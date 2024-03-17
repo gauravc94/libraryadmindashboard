@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -6,12 +10,65 @@ body {
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
-  background-color: blue;
+  background-color: rgb(90, 90, 201);
 }
 
 .nav button {
   border: none;
-  background-color: white;
+  background-color: inherit;
+  color: white;
+  font-weight: 800;
+  font-size: 1em;
   padding: 10px;
   margin: 5px;
+  cursor: pointer;
+}
+
+.nav button:hover {
+  background-color: black;
+  /* font-size: .8em; */
+}
+
+th, td {
+  padding: 20px;
+  margin: 0 0 0 0;
+  text-align: left;
+  word-break: break-all;
+  font-size: small;
+  border: 1px solid rgb(90, 90, 201);
+  /* box-shadow: lightblue; */
+  /* word-wrap: break-word; */
+}
+
+table {
+  border-collapse: collapse;
+  max-width: 95vw;
+}
+
+.addBook-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.editBook-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.addAuthor-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.editAuthor-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }

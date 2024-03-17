@@ -1,31 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { API } from './global'
+import axios from 'axios'
 
 export function BookList() {
     const [bookList, setBookList] = useState([])
     const navigate = useNavigate()
 
     const getBooks = () => {
-        fetch(`${API}/books`, {
-            method: "GET"
-        })
-            .then((res) => res.json())
-            .then((bks) => setBookList(bks))
+        axios.get(`${API}/books`)
+            .then((res) => setBookList(res.data))
+            .catch(err => console.error("error fetching Books:", err))
     }
 
     useEffect(() => getBooks(), [])
+
+    // console.log(bookList)
     
     return (
         <div>
-            <h1>BookList</h1>
+            <h1>Books</h1>
             <table>
                 <thead>
                     <tr>
                         <th>Title</th>
                         <th>Author</th>
                         <th>ISBN</th>
-                        <th>Publication Date</th>
+                        <th>Publication Date (YYYY-MM-DD)</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,11 +40,10 @@ export function BookList() {
                             <td>
                                 <button onClick={() => navigate(`/books/edit/${bk.id}`)}>Edit</button>
                                 <button onClick={() => {
-                                    fetch(`${API}/books/${bk.id}`, {
-                                        method: "DELETE"
-                                    })
-                                    .then(() => getBooks())
-                                }}>Delete</button>
+                                    axios.delete(`${API}/books/${bk.id}`)
+                                        .then(() => getBooks())
+                                        .catch(err => console.error("error deleting Book:", err))
+                                }}>Del</button>
                             </td>
                         </tr>
                     ))}

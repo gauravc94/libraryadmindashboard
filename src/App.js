@@ -20,7 +20,6 @@ function App() {
           <button onClick={() => navigate("/authors")}>Authors</button>
           <button onClick={() => navigate("/authors/add")}>Add Authors</button>
         </nav>
-        <h1>Library Dashboard</h1>
       </header>
 
       <Routes>
