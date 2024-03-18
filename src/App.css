@@ -4,6 +4,15 @@
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: seashell;
+}
+
+.insignia {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  padding: 10px;
+  text-transform: uppercase;
 }
 
 .nav {
@@ -26,49 +35,127 @@ body {
 
 .nav button:hover {
   background-color: black;
-  /* font-size: .8em; */
+}
+
+.nav button:active {
+  background-color: seashell;
+  color: black;
+}
+
+label {
+  font-size: small;
+  font-weight: bold;
 }
 
 th, td {
-  padding: 20px;
-  margin: 0 0 0 0;
+  padding: 10px;
   text-align: left;
   word-break: break-all;
-  font-size: small;
-  border: 1px solid rgb(90, 90, 201);
-  /* box-shadow: lightblue; */
-  /* word-wrap: break-word; */
+  font-size: medium;
+  border: 1px solid rgb(0, 0, 0);
 }
 
-table {
+.table {
   border-collapse: collapse;
-  max-width: 95vw;
+  /* max-width: 95vw; */
 }
 
-.addBook-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
+
+
+.table tr > * {
+  max-width: 350px;
 }
 
-.editBook-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.addAuthor-form {
+.form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
 }
 
-.editAuthor-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
+.form input {
+  padding: 5px 10px;
+  font-size: large;
 }
+
+.form textarea {
+  font-size: larger;
+  padding: 5px 10px;
+  height: 150px;
+}
+
+.form div {
+  color: rgb(255, 0, 0);
+}
+
+.btn-edit {
+  background-color: rgb(19, 161, 76);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-edit:hover {
+  background-color: rgb(0, 255, 102);
+  color: black;
+}
+
+.btn-del {
+  background-color: rgb(204, 24, 24);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-del:hover {
+  background-color: rgb(255, 113, 113);
+  color: black;
+}
+
+.btn-add {
+  background-color: rgb(90, 90, 201);
+  font-size: larger;
+  border: none;
+  color: seashell;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.btn-add:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.btn-save {
+  background-color: rgb(28, 110, 28);
+  border: none;
+  font-size: larger;
+  color: seashell;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.btn-save:hover {
+  background-color: rgb(64, 216, 8);
+  color: black;
+}
+
+

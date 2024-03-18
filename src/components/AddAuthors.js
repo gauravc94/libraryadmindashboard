@@ -16,8 +16,8 @@ export function AddAuthors() {
         },
         validationSchema: Yup.object({
             name: Yup.string().required("Name cannot be empty"),
-            birthDate: Yup.date().required("Birth Date is required"),
-            biography: Yup.string().min(30).max(400).required("Biography cannot be empty")
+            birthDate: Yup.date().max(new Date(), "Birth Date cannot exceed the current date").required("Birth Date is required"),
+            biography: Yup.string().min(30, "Biography should be minimum of 30 characters").required("Biography cannot be empty"),
         }),
         onSubmit: (values) => {
             // console.log(values)
@@ -32,38 +32,45 @@ export function AddAuthors() {
     return (
         <div>
             <h1>Add Author</h1>
-            <form className="addAuthor-form" onSubmit={formik.handleSubmit}>
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                />
-                {formik.touched.name && formik.errors.name ?
-                <div>{formik.errors.name}</div> : ""}
-                <input
-                    type="date"
-                    name="birthDate"
-                    placeholder="Birth Date"
-                    value={formik.values.birthDate}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                />
-                {formik.touched.birthDate && formik.errors.birthDate ?
-                <div>{formik.errors.birthDate}</div> : ""}
-                <input
-                    type="text"
-                    name="biography"
-                    placeholder="Biography"
-                    value={formik.values.biography}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                />
-                {formik.touched.biography && formik.errors.biography ?
-                <div>{formik.errors.biography}</div> : ""}
-                <button type="submit">Add Author</button>
+            <form className="form" onSubmit={formik.handleSubmit}>
+                <div>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        value={formik.values.name}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.name && formik.errors.name ?
+                    formik.errors.name : ""}
+                </div>
+                <div>
+                    <input
+                        type="date"
+                        name="birthDate"
+                        placeholder="Birth Date"
+                        value={formik.values.birthDate}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.birthDate && formik.errors.birthDate ?
+                    formik.errors.birthDate : ""}
+                </div>
+                <div>
+                    <textarea
+                        name="biography"
+                        placeholder="Biography"
+                        value={formik.values.biography}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                    >
+                    </textarea>
+                    {formik.touched.biography && formik.errors.biography ?
+                    formik.errors.biography : ""}
+                </div>
+
+                <button className="btn-add" type="submit">Add Author</button>
             </form>
         </div>
     )

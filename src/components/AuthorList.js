@@ -20,11 +20,11 @@ export function AuthorList() {
     return (
         <div>
             <h1>Authors</h1>
-            <table>
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Birth Date</th>
+                        <th>Birth Date (YYYY-MM-DD)</th>
                         <th>Biography</th>
                         <th>Actions</th>
                     </tr>
@@ -35,9 +35,9 @@ export function AuthorList() {
                             <td>{athr.name}</td>
                             <td>{athr.birthDate}</td>
                             <td>{athr.biography}</td>
-                            <td>
-                                <button onClick={() => navigate(`/authors/edit/${athr.id}`)}>EDIT</button>
-                                <button onClick={() => {
+                            <td className="action-cell">
+                                <button className="btn-edit" onClick={() => navigate(`/authors/edit/${athr.id}`)}>EDIT</button>
+                                <button className="btn-del" onClick={() => {
                                     axios.delete(`${API}/authors/${athr.id}`)
                                         .then(() => getAuthors())
                                         .catch((err) => console.error("error deleting Author:", err))

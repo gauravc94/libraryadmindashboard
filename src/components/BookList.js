@@ -20,7 +20,7 @@ export function BookList() {
     return (
         <div>
             <h1>Books</h1>
-            <table>
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Title</th>
@@ -37,13 +37,13 @@ export function BookList() {
                             <td>{bk.author}</td>
                             <td>{bk.isbn}</td>
                             <td>{bk.publicationDate}</td>
-                            <td>
-                                <button onClick={() => navigate(`/books/edit/${bk.id}`)}>Edit</button>
-                                <button onClick={() => {
+                            <td className="action-cell">
+                                <button className="btn-edit" onClick={() => navigate(`/books/edit/${bk.id}`)}>EDIT</button>
+                                <button className="btn-del" onClick={() => {
                                     axios.delete(`${API}/books/${bk.id}`)
                                         .then(() => getBooks())
                                         .catch(err => console.error("error deleting Book:", err))
-                                }}>Del</button>
+                                }}>DEL</button>
                             </td>
                         </tr>
                     ))}

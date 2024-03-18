@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <header>
+      <div className="insignia">Library Admin Dashboard</div>
         <nav className="nav">
           <button onClick={() => navigate("/books")}>Books</button>
           <button onClick={() => navigate("/books/add")}>Add Books</button>
